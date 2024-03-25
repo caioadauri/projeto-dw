@@ -24,11 +24,53 @@ async function cadastroUsuario() {
   })
 
   let data = await response.json()
+  
   if (data.data.statusCode != 200) {
-    console.log(data.data.errors)
+    alert(data.data.errors)
     return
   }
   console.log('Cadastro realizado com sucesso')
+}
+
+function validarCampos() {
+  var nome = form.name
+  var email = form.email
+  var password = form.password
+  var cpf_cnpj = form.cpf_cnpj
+  var birthday = form.birthday
+  var checkbox = form.checkbox
+
+  if (nome.value == "") {
+    alert('Inserir o nome')
+    nome.focus()
+  }
+
+  if (email.value == "") {
+    alert('Inserir o email')
+    email.focus()
+  }
+
+  if (password.value == "") {
+    alert('Inserir a senha')
+    password.focus()
+  }
+
+  if (cpf_cnpj.value == "") {
+    alert('Inserir o CPF ou CNPJ')
+    cpf_cnpj.focus()
+  }
+
+  if (birthday.value == "") {
+    alert('Inserir o Data de nascimento')
+    birthday.focus()
+  }
+
+  if ( checkbox.checked) {
+    console.log('termos aceito')
+  }else {
+    alert('Aceitar os termos de uso')
+    checkbox.focus()
+  }
 }
 
 
